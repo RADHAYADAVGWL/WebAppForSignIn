@@ -12,14 +12,14 @@ namespace WebAppForSignIn.Controllers
         {
             _logger = logger;
         }
-        [HttpGet]
+       
         public IActionResult Index()
         {
             
             return View();
         }
         [HttpGet]
-        public IActionResult Login()
+        public ActionResult Login()
         {
             Login login=new Login();
             return View(login);
