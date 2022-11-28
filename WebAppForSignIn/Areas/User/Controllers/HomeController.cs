@@ -1,12 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebAppForSignIn.Areas.User.Models;
 
 namespace WebAppForSignIn.Areas.User.Controllers
 {
     [Area("User")]
     public class HomeController : Controller
     {
-        
-       
+        [HttpGet]
+        public ViewResult Registration()
+        {
+            
+            Registration registration= new Registration();
+
+         
+            return View();
+        }
+      [HttpPost]
+        public IActionResult Registration(Registration registration)
+        {
+           
+            return View(registration);
+        }
+
         public IActionResult Dashboard()
         {
 
@@ -18,7 +33,12 @@ namespace WebAppForSignIn.Areas.User.Controllers
             return View();
         }
 
+
         public IActionResult Logout()
+        {
+            return View();
+        }
+        public IActionResult Reg()
         {
             return View();
         }

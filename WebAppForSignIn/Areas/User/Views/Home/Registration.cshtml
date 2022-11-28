@@ -1,0 +1,78 @@
+﻿@using WebAppForSignIn.Areas.User.Models;
+@model WebAppForSignIn.Areas.User.Models.Registration
+
+@{
+    ViewData["Title"] = "Registration";
+}
+
+
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Registration">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contact" class="control-label"></label>
+                <input asp-for="Contact" class="form-control" />
+                <span asp-validation-for="Contact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  asp-for="Gender" class="control-label"></label><br/>
+                <input type="radio" asp-for="Gender" value="@GenderType.Male" />Male
+                <input type="radio" asp-for="Gender" value="@GenderType.Female"  />Female
+
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div><br/>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="AcceptTerm" /> 
+                    @Html.DisplayNameFor(model => model.AcceptTerm)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div><br/>
+
+<div>
+    <a asp-controller="Home" asp-action="Index">Back to List asp-area=""</a>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"></partial>
+<script>
+ jquery.validator.unobtrusive.adapters.add("chkbox", function (options) {
+   if (options.element.tagName.toUpperCase() == "INPUT" && options.element.type.toUpperCase() == "CHECKBOX") {
+                options.rules["required"] = true;
+                
+        if (options.message) {
+                    options.messages["required"] = options.message;
+        }
+        }
+ });
+    </script>
+}
+
