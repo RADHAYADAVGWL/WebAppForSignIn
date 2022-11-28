@@ -38,10 +38,7 @@ namespace WebAppForSignIn.Areas.User.Controllers
         {
             return View();
         }
-        public IActionResult Reg()
-        {
-            return View();
-        }
+        
 
 
         //public IActionResult Index(UserLoginModel model)
